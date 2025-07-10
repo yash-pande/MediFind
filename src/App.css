@@ -1,42 +1,48 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+*{
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+
+:root{
+  --accent-1: hsl(226, 51%, 29%);
+  --accent-2 :hsl(200, 71%, 50%);
+  
+  --primary-bg-color : hsl(0, 0%, 90%);  
+  --secondary-bg-color : hsl(0, 0%, 70%);
+
+  --primary-text-color : hsl(0, 0%, 20%);
+  --secondary-text-color :hsl(0, 0%, 0%);
+
+  --primary-border-color:hsl(0, 0%, 20%); 
+
+  --button-solid-color:var(--accent-1);
+  --button-solid-text-color:var(--accent-2);
+    
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+body{
+  font-family: Inter;
+  
+
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1{
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 4rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2{
+  font-size: 3.4rem;
+  font-weight: 600;
+  line-height: 3.4rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+h3{
+  font-size: var(--text-2xl);
+}
+p{
+  font-size:1rem
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
