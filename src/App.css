@@ -10,29 +10,51 @@
   --accent-1: hsl(226, 51%, 29%);
   --accent-2 :hsl(200, 71%, 50%);
   
-  --primary-bg-color : hsl(0, 0%, 90%);  
+  /* --primary-bg-color : hsl(0, 0%, 90%);   */
   --secondary-bg-color : hsl(0, 0%, 70%);
 
-  --primary-text-color : hsl(0, 0%, 20%);
+  --primary-text-color : hsl(0, 0%, 10%);
+  --secondary-text-color :hsl(0, 0%, 40%);
+
+  --primary-border-color:hsl(0, 0%, 20%); 
+
+  --button-solid-color:var(--accent-1);
+  --button-solid-text-color:var(--accent-2);
+
+}
+
+[data-theme="dark"]{
+  --accent-1: hsl(226, 51%, 29%);
+  --accent-2 :hsl(200, 71%, 50%);
+  
+  /* --primary-bg-color : hsl(0, 0%, 90%);   */
+  --primary-bg-color : yellow;  
+  --secondary-bg-color : hsl(0, 0%, 70%);
+
+  /* --primary-text-color : hsl(0, 0%, 20%); */
+  --primary-text-color : yellow;
   --secondary-text-color :hsl(0, 0%, 0%);
 
   --primary-border-color:hsl(0, 0%, 20%); 
 
   --button-solid-color:var(--accent-1);
   --button-solid-text-color:var(--accent-2);
-    
 }
-body{
-  font-family: Inter;
-  
 
-}
+
+ body{
+  font-family: Inter;
+  color: var(--primary-text-color)
+} 
+
 h1{
   font-size: 4rem;
-  font-weight: 700;
   line-height: 4rem;
 }
 
+.bold{
+ font-weight: 600;
+}
 h2{
   font-size: 3.4rem;
   font-weight: 600;
