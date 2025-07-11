@@ -6,6 +6,7 @@ function makeApiCall(){
 }
 const Search = () => {
     const [value,setValue] = useState('')
+    
     return (
         <div className='flex my-10 w-full justify-center '>
             <input onChange={ (e) => setValue(e.target.value)} placeholder='Search for info' className=' flex-grow max-w-xl  p-4 border-4 border-r-0 ' ></input>
