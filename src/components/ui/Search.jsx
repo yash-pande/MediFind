@@ -1,17 +1,42 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
-function makeApiCall(){
-    console.log(value)
-}
 const Search = () => {
-    const [value,setValue] = useState('')
-    return (
-        <div className='flex my-10 w-full justify-center '>
-            <input onChange={ (e) => setValue(e.target.value)} placeholder='Search for info' className=' flex-grow max-w-xl  p-4 border-4 border-r-0 ' ></input>
-            <button onClick={() => {makeApiCall}} className='p-4 text-xl border-l-0 border-4 '><FaSearch /></button>
-        </div>
+  const [showBar, setShowBar] = useState(false); // use boolean, not string
+
+  async function getMovie() {
+    console.log("clicked");
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=0e08ada4255dc7573361095a80a0dd00"
     );
+    const data = await response.json();
+    console.log(data);
+  }
+
+  return (
+    <>
+      {/* Toggle Button (Always visible) */}
+      <button onClick={() => setShowBar(!showBar)} className="text-xl p-4">
+        <FaSearch />
+      </button>
+
+      {/* Show search bar only if showBar is true */}
+      {showBar && (
+        <div className="flex w-full justify-center ">
+          <input
+            placeholder="Search for info"
+            className="flex-grow max-w-xl pl-4 border-4 border-r-0"
+          />
+          <button
+            onClick={getMovie}
+            className=" text-xl border-l-0 border-4"
+          >
+            <FaSearch />
+          </button>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Search;
