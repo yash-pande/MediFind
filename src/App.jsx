@@ -6,7 +6,7 @@ function App() {
   
 
   return (
-    <div className='  text-primary '>
+    <div className=' text-primary '>
 
     
     <BrowserRouter>

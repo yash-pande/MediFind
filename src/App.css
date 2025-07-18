@@ -70,8 +70,12 @@ p{
 }
 img{
   width: 100%;
-  height: 100%;
-  object-fit:cover;
+  height: auto;
+  
+}
+
+small{
+  color: var(--secondary-text-color)
 }
 
 /* src/index.css */
