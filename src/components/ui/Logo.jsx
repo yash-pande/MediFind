@@ -7,8 +7,8 @@ const Logo = () => {
     return (
         <div>
             <Link to="/about" href="google.com" className="flex items-center " >
-                <GiMedicines className="text-[var(--accent-1)] mr-2 text-6xl"  />
-                <h3  className="text-[var(--accent-1)] font-bold"> MediFind.</h3>
+                <GiMedicines className="text-[var(--accent-1)] mr-2 text-3xl"  />
+                <p className="text-[var(--accent-1)] font-bold"> MediFind.</p>
             </Link>
         </div>
     );
