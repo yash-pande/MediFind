@@ -5,7 +5,6 @@ const Search = () => {
   const [showBar, setShowBar] = useState(false); // use boolean, not string
 
   async function getMovie() {
-    console.log("clicked");
     const response = await fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=0e08ada4255dc7573361095a80a0dd00"
     );

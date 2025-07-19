@@ -30,4 +30,9 @@ export const trendinThisWeek = async() =>{
     const data = await res.json();
     return data.results
   }
-
+export const fetchByMovieId = async(id) =>{
+    const res = await fetch(`${baseUrl}/trending/movie/${id}?api_key=${apiKey}`)
+    const data = await res.json();
+  
+    return data.results
+  }
