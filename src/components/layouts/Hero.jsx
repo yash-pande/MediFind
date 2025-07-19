@@ -4,18 +4,17 @@ import Navbar from "./Navbar";
 import Search from "../ui/Search";
 import { trendinThisWeek } from "../../apis/tmdb";
 import UpcomingCard from "../ui/UpcomingCard";
+import Skeleton from "react-loading-skeleton";
 
 const imagebase = import.meta.env.VITE_IMAGE_BASE_URL;
 
 const Hero = () => {
   const [latest, setLatest] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  
   useEffect(() => {
     const fetch = async () => {
       const movies = await trendinThisWeek();
       setLatest(movies);
-      console.log("Fetched movies:", movies);
     };
     fetch();
   }, []);
@@ -25,7 +24,7 @@ const Hero = () => {
     if (!latest.length) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % latest.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [latest]);
 
@@ -35,17 +34,18 @@ const Hero = () => {
     nextMovies.push(latest[(currentIndex + i) % latest.length]);
   }
 
-  // Debug output
-  console.log("Current movie:", currentMovie);
-  console.log("Next movies:", nextMovies);
+  
 
   return (
+    
     <header className="w-full h-[50vh]  md:h-[70vh] ">
       <div className="w-full lg:max-w-7xl flex overflow-hidden lg:rounded-2xl m-auto h-full ">
-        <div
+        {<div
           style={{
-            backgroundImage: currentMovie.backdrop_path ? `url(https://image.tmdb.org/t/p/original${currentMovie.backdrop_path})` : undefined,
+            backgroundImage: currentMovie.backdrop_path ? `url(${imagebase}${currentMovie.backdrop_path})` : undefined,
+            
           }}
+          
           className="relative flex items-end bg-center bg-cover p-4 inset-0 max-w-[100%] lg:max-w-[70%] w-full h-full"
         >
 
@@ -54,15 +54,13 @@ const Hero = () => {
           {currentMovie && currentMovie.title ? (
             <div className="relative  z-10 flex items-end ">
               <div className="max-w-40 max-h-60 justify-centre items-centre flex overflow-hidden">
-                {currentMovie.poster_path ? (
+                { 
                   <img
                     src={`https://image.tmdb.org/t/p/w300${currentMovie.poster_path}`}
                     alt={currentMovie.title}
                     className=""
-                  />
-                ) : (
-                  <div className="h-40 w-28 bg-gray-300 flex items-center justify-center text-gray-600">No Poster</div>
-                )}
+                  /> || <Skeleton />
+                }
               </div>
               <h2 className="text-3xl font-bold text-white drop-shadow-lg mb-4 ml-4">
                 {currentMovie.title}
@@ -73,13 +71,13 @@ const Hero = () => {
           )}
           {/* Overlay */}
           <div className="absolute z-0 inset-0 bg-black/45"></div>
-        </div>
+        </div> || <Skeleton />}
 
 
 
-        <div className="hidden lg:block max-w-[30%]  h-full  p-4">
+        <div className="hidden lg:block max-w-[30%] w-full  h-full  p-4">
           <h3 className=" ">Up Next </h3>
-          <div className="flex-co my-2 h-full justify-between  ">
+          <div className="flex-col my-2 h-full">
           {nextMovies.filter(Boolean).length > 0 ? (
             nextMovies.map((movie, idx) =>
               movie && movie.title ? (

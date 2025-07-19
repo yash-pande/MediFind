@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import Hero from '../components/layouts/Hero';
 import Navbar from '../components/layouts/Navbar';
-import Main from '../components/layouts/Main';
+const Main = React.lazy(() => import('../components/layouts/Main'));
+
+
 
 const Home = () => {
     const [backdrop,setBackdrop] = useState("");

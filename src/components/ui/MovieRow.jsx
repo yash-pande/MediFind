@@ -3,7 +3,6 @@ import MovieCard from './MovieCard';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const MovieRow = ({movies,title}) => {
-    console.log(movies)
     const scrollRef = useRef(null)
     const scroll = (direction) => {
         if (scrollRef.current) {
@@ -35,7 +34,7 @@ const MovieRow = ({movies,title}) => {
 
                     <ul ref={scrollRef} className='flex gap-4 overflow-x-auto scroll-smooth scrollbar-hide '>
                     {movies.map((movie,i) => (
-                       <MovieCard key={i} image={movie.poster_path}  title={movie.orignal_title} data={movie}/>
+                       <MovieCard key={i}  image={movie.poster_path}  title={movie.orignal_title} data={movie}/>
                     ))}</ul>
 
                     {/* right button */}
