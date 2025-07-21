@@ -16,7 +16,7 @@ const MovieRow = ({movies,title}) => {
 
 
     return (
-        <div className='mt-12 mb-12 max-w-full  m-auto  flex-col'>
+        <div className='mt-12 mb-12 max-w-full   m-auto  flex-col'>
             <div className=''>
                 <h3 className='ml-12 mb-6'>{title}</h3>
 
