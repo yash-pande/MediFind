@@ -25,7 +25,7 @@
 
 [data-theme="dark"]{
   --accent-1: hsl(226, 51%, 29%);
-  --accent-2 :hsl(200, 71%, 50%);
+  --accent-2: hsl(226, 51%, 0%);
   
   /* --primary-bg-color : hsl(0, 0%, 90%);   */
   --primary-bg-color : yellow;  
@@ -85,4 +85,14 @@ small{
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+
+@keyframes expand {
+  from{
+    width : 0px;
+  }
+  to{
+    width : 400px;
+  }
 }

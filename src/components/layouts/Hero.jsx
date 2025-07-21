@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Logo from "../ui/Logo";
 import Navbar from "./Navbar";
-import Search from "../ui/Search";
+import SearchBox from "../ui/SearchBox";
 import { trendinThisWeek } from "../../apis/tmdb";
 import UpcomingCard from "../ui/UpcomingCard";
 import Skeleton from "react-loading-skeleton";
@@ -11,6 +11,8 @@ const imagebase = import.meta.env.VITE_IMAGE_BASE_URL;
 const Hero = () => {
   const [latest, setLatest] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+
+
   useEffect(() => {
     const fetch = async () => {
       const movies = await trendinThisWeek();
@@ -43,7 +45,6 @@ const Hero = () => {
         {<div
           style={{
             backgroundImage: currentMovie.backdrop_path ? `url(${imagebase}${currentMovie.backdrop_path})` : undefined,
-            
           }}
           
           className="relative flex items-end bg-center bg-cover p-4 inset-0 max-w-[100%] lg:max-w-[70%] w-full h-full"
@@ -58,8 +59,8 @@ const Hero = () => {
                   <img
                     src={`https://image.tmdb.org/t/p/w300${currentMovie.poster_path}`}
                     alt={currentMovie.title}
-                    className=""
-                  /> || <Skeleton />
+                    className="bg-zinc-600" 
+                  /> 
                 }
               </div>
               <h2 className="text-3xl font-bold text-white drop-shadow-lg mb-4 ml-4">
@@ -75,7 +76,7 @@ const Hero = () => {
 
 
 
-        <div className="hidden lg:block max-w-[30%] w-full  h-full  p-4">
+        <div className="hidden lg:block max-w-[30%] w-full h-full p-4">
           <h3 className=" ">Up Next </h3>
           <div className="flex-col my-2 h-full">
           {nextMovies.filter(Boolean).length > 0 ? (

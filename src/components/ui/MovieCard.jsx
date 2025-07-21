@@ -10,10 +10,10 @@ const MovieCard = ({ title, image, data }) => {
   return (
     <Link
       to={`/info/${data.id}`}
-      className="min-w-30 lg:min-w-50 w-full relative group hover:scale-110 cursor-pointer"
+      className="min-w-30 lg:min-w-50 w-full relative group hover:scale-110 cursor-pointer aspect-[2/3] max-h-80"
     >
       {!isLoaded && (
-        <Skeleton height={300} borderRadius={10} className="w-full h-full" />
+        <Skeleton height="100%" borderRadius={10} className="w-full h-full absolute top-0 left-0" />
       )}
 
       <img
@@ -21,7 +21,7 @@ const MovieCard = ({ title, image, data }) => {
         alt={title}
         className={`w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'}`}
         onLoad={() => setIsLoaded(true)}
-        onError={() => setIsLoaded(true)} // stop showing skeleton even if image fails
+        onError={() => setIsLoaded(true)}
         loading="lazy"
       />
 
